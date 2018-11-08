@@ -80,7 +80,11 @@ class Index extends Component {
   componentDidShow () { }
 
   componentDidHide () { }
-
+  toMenu(){
+    Taro.navigateTo({
+      url: '../menu/menu'
+    })
+  }
   render () {
     const menu = this.props.list.map((item, index) => {
       return <View key={index}><Text>{item.id+':'+item.text}</Text></View>
@@ -92,6 +96,7 @@ class Index extends Component {
         <Button className='dec_btn' onClick={this.props.del}>clear</Button>
         <Button className='dec_btn' onClick={this.props.asyncAdd}>async</Button>
         {menu}
+        <Button onClick={this.toMenu}>跳转到menu页面</Button>
       </View>
     )
   }
